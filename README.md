@@ -3,7 +3,7 @@
 # Django Tutorial
 *Part 3*
 
-'''python
+'''
   from django.http improt HttpResponse
   from django.template import loader
 
@@ -14,7 +14,7 @@
   return response
 '''
 
-'''python
+'''
 
   from django.shortcuts import render
   
