@@ -1,7 +1,8 @@
 # django-study
 
 # Django Tutorial
-* Part 3 *
+*Part 3*
+
 '''python
   from django.http improt HttpResponse
   from django.template import loader
@@ -17,7 +18,6 @@
 
   from django.shortcuts import render
   
-  ###
   
   response = render(request, 'polls/index.html', context) 
   return response
