@@ -1,7 +1,7 @@
 # django-study
 
 # Django Tutorial
-*Part 3*
+*Part 3: models and admin*
 
 ```python
   from django.http improt HttpResponse
@@ -45,7 +45,43 @@
 ```
 
 ```html
-  <li><a href="{% url 'detail' question.id %}></a></li>
-  <li><a href="{% url 'polls:detail' question.id %}</a></li>
+  <li><a href="{% url 'detail' question.id %}"></a></li>
+  <li><a href="{% url 'polls:detail' question.id %}"</a></li>
+```
+*Part 4: forms*
+
+```html
+<h1>{{question.question_text}}</h1>
+{% if error_message %} {{ error_message }} {% endif %}
+
 ```
 
+*Part 5: Testing*
+
+```python
+
+# in polls/test.py
+import datetime
+
+from django.utils import timezone
+from django.test import TestCase
+
+from .models import Question
+
+
+class QuestionMethodTests(TestCase):
+
+    def test_was_published_recently_with_future_question(self):
+        """
+        was_published_recently() should return False for questions whose
+        pub_date is in the future.
+        """
+        time = timezone.now() + datetime.timedelta(days=30)
+        future_question = Question(pub_date=time)
+        self.assertIs(future_question.was_published_recently(), False)
+
+``
+
+```shell
+python manage.py test polls
+````
